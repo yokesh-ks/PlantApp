@@ -8,9 +8,7 @@ const GetStarted = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (goToSlide === data.length - 1) {
-        setGoToSlide(0);
-      } else {
+      if (goToSlide < data.length - 1) {
         setGoToSlide(goToSlide + 1);
       }
     }, 3000);
@@ -19,10 +17,18 @@ const GetStarted = () => {
     };
   }, [goToSlide]);
 
+  const goNext = () => {
+    if (goToSlide === data.length - 1) {
+      console.log('go to sign in page');
+    } else {
+      setGoToSlide(goToSlide + 1);
+    }
+  };
+
   return (
     <View style={styles.wrapperContainer}>
       <View style={styles.container}>
-        <Image source={start} />
+        <Image source={data[goToSlide].image} />
         <Text style={styles.title}>{data[goToSlide].title}</Text>
         <Text style={styles.description}>{data[goToSlide].description}</Text>
         <View style={styles.iconContainer}>
@@ -36,8 +42,10 @@ const GetStarted = () => {
             </TouchableOpacity>
           ))}
         </View>
-        <TouchableOpacity style={styles.ctaButton}>
-          <Text style={styles.ctaText}>Next</Text>
+        <TouchableOpacity style={styles.ctaButton} onPress={goNext}>
+          <Text style={styles.ctaText}>
+            {goToSlide === data.length - 1 ? 'Sign up' : 'Next'}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -96,6 +104,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 18,
     color: '#FFFFFF',
+    textTransform: 'uppercase',
   },
 });
 
