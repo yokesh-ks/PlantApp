@@ -8,13 +8,12 @@
 
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
+import GetStarted from './src/screens/getStarted';
 
 const App = () => {
   return (
     <SafeAreaView>
-      <View>
-        <Text>Plant App</Text>
-      </View>
+      <GetStarted />
     </SafeAreaView>
   );
 };
