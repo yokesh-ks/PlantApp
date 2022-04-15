@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import data from './data';
-import start from '../../../assets/getStarted1.png';
+import MobileContainer from '../../components/MobileContainer';
 
 const GetStarted = () => {
   const [goToSlide, setGoToSlide] = useState(0);
@@ -26,7 +26,7 @@ const GetStarted = () => {
   };
 
   return (
-    <View style={styles.wrapperContainer}>
+    <MobileContainer style={styles.wrapperContainer}>
       <View style={styles.container}>
         <Image source={data[goToSlide].image} />
         <Text style={styles.title}>{data[goToSlide].title}</Text>
@@ -48,7 +48,7 @@ const GetStarted = () => {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </MobileContainer>
   );
 };
 
@@ -56,21 +56,22 @@ const styles = StyleSheet.create({
   wrapperContainer: {
     height: '100%',
     justifyContent: 'center',
-    marginHorizontal: 20,
   },
   container: {
     alignItems: 'center',
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 19,
     lineHeight: 23,
     marginTop: 64,
+    color: 'rgba(255, 255, 255, 1)',
   },
   description: {
     fontSize: 13,
     lineHeight: 16,
     marginTop: 23,
-    color: 'rgba(106, 111, 125, 0.8)',
+    color: 'rgba(255, 255, 255, 0.8)',
     textAlign: 'center',
   },
   iconContainer: {
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     marginTop: 55,
   },
   activeIcon: {
-    width: 7,
+    width: 20,
     height: 7,
     backgroundColor: '#2DDA93',
     borderRadius: 7,
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
   nonActiveIcon: {
     width: 7,
     height: 7,
-    backgroundColor: '#DBDBDB',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     borderRadius: 7,
     marginRight: 9,
   },
@@ -95,15 +96,17 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     marginTop: 54,
-    backgroundColor: '#2DDA93',
-    borderRadius: 3,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
   },
   ctaText: {
     fontSize: 15,
     lineHeight: 18,
-    color: '#FFFFFF',
+    color: '#2DDA93',
+    fontWeight: '600',
+    letterSpacing: 0.24,
     textTransform: 'uppercase',
   },
 });
