@@ -7,10 +7,9 @@
  */
 
 import React from 'react';
-import {Text, View} from 'react-native';
-import GetStarted from './src/screens/getStarted';
+import AppNavigation from '.src/navigation/index';
 
 const App = () => {
-  return <GetStarted />;
+  return <AppNavigation />;
 };
 export default App;
